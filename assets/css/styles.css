@@ -72,6 +72,36 @@ body, html {
     color: white;
 }
 
+@media screen and (max-width: 800px) and (max-height: 1612px) {
+    .header-container {
+        height: 5vh;
+        margin-top: 20px;
+    }
+
+    .title-header {
+        font-size: 16px;
+        margin: 0;
+    }
+
+    .options-container {
+        padding: 10px 0;
+    }
+
+    .options-container lu {
+        padding: 10px 0;
+    }
+
+    .options-container li {
+        margin-bottom: 5px;
+        font-size: 16px;
+    }
+
+    .home a,
+    .blog a {
+        display: none;
+    }
+}
+
 .main-container {
     display: flex;
     margin-top: 20px;
@@ -173,4 +203,66 @@ body, html {
     margin-right: 2px;
     width: 20px;
     height: auto;
+}
+
+@media screen and (max-width: 800px) and (max-height: 1612px) {
+    .main-container {
+        width: 90%;
+        height: 80vh;
+        margin-top: 70px;
+        margin-bottom: 30px;
+    }
+
+    .profile-container {
+        flex-direction: column;
+        align-items: center;
+        margin: 10px;
+    }
+
+    .profile-image {
+        margin-right: 0;
+        max-width: 610px;
+    }
+
+    .profile-image img {
+        width: 100%;
+        height: auto;
+        border-radius: 15px;
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .data-container {
+        margin: 10px;
+    }
+
+    .data-container h1 {
+        font-size: 40px;
+        margin-bottom: 10px;
+    }
+
+    .data-container h2 {
+        font-size: 25px;
+        margin: 5px 0;
+    }
+
+    .data-container p {
+        font-size: 25px;
+        margin-bottom: 10px;
+    }
+
+    .data-container ul {
+        margin-bottom: 10px;
+    }
+
+    .data-container li {
+        font-size: 25px;
+    }
+
+    .links-container {
+        padding-top: 10px;
+    }
+
+    .links-container img {
+        width: 40px;
+    } 
 }
