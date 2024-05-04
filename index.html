@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="assets/css/styles.css" type="text/css" rel="stylesheet">
+    <link href="assets/css/styles-mobile.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+    <script src="assets/js/script.js" type="text/javascript"></script>
     <link rel="icon" href="assets/resources/images/usuario-de-perfil.png" type="image/x-icon">
     <title>Victor Eduardo</title>
 </head>
@@ -15,15 +17,22 @@
         <div class="title-header">
             <h1>Conheça-me</h1>
         </div>
-        <div class="options-container">
-            <ul>
-                <li><a href="#" target="">Home</a></li>
-                <li><a href="#" target="">Blog</a></li>
-                <li><a href="https://www.instagram.com/victor_edupc/" target="_blank">Instagram</a></li>
-                <li><a href="https://github.com/VictorEdu-Dev" target="_blank">GitHub</a></li>
-                <li><a href="https://www.linkedin.com/in/victor-eduardo-44687b202/" target="_blank">Linkedin</a></li>
-                <li><a href="http://lattes.cnpq.br/8181544147748161" target="_blank">Lattes</a></li>
-            </ul>
+        <div class="sidebar-principal">
+            <div class="sidebar-button">
+                <div class="top-navbar">
+                    <button onclick="toggleSidebar()" id="open-sidebar"><img src="assets/resources/images/icons8-menu-button-50.png" alt="menu-icon"></button>
+                </div>
+            </div>
+            <nav class="options-container" id="sidebar">
+                <ul>
+                    <li class="home"><a href="#" target="">Home</a></li>
+                    <li class="blog"><a href="#" target="">Blog</a></li>
+                    <li class="instagram"><a href="https://www.instagram.com/victor_edupc/" target="_blank">Instagram</a></li>
+                    <li class="linkedin"><a href="https://www.linkedin.com/in/victor-eduardo-44687b202/" target="_blank">Linkedin</a></li>
+                    <li class="github"><a href="https://github.com/VictorEdu-Dev" target="_blank">GitHub</a></li>
+                    <li class="lattes"><a href="http://lattes.cnpq.br/8181544147748161" target="_blank">Lattes</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
     <main class="main-container">
@@ -39,7 +48,7 @@
                     Java Web Developer
                 </h2>
                 <p>
-                    Acadêmico de Engenharia de Computação focado em Java e suas tecnologias. Desenvolvendo com Spring MVC, JPA e Hibernate para desenvolvimento web, e utilizando JSP para visualizações.
+                    Acadêmico de Engenharia de Computação focado em Java e suas tecnologias. Desenvolvendo com Spring MVC para controllers, JPA e Hibernate para persistência, e utilizando JSP para visualizações.
                 </p>
                 <ul>
                     <li><img src="assets/resources/images/calendario.svg" alt="calendar.svg">26 de Junho de 2004</li>
