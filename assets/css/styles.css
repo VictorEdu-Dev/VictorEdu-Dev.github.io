@@ -3,7 +3,6 @@ body, html {
     flex-direction: column;
     padding: 0;
     margin: 0;
-    overflow: hidden;
 }
 
 .header-container {
@@ -35,6 +34,15 @@ body, html {
 .title-header {
     margin: 0;
     color: white;
+    width: 30%;
+}
+
+.sidebar-principal {
+    width: 100%;
+}
+
+.sidebar-button {
+    display: none;
 }
 
 .options-container {
@@ -44,8 +52,11 @@ body, html {
 }
 
 .options-container ul {
+    text-align: end;
     list-style-type: none;
     color: white;
+    width: 100%;
+    padding: 0;
 }
 
 .options-container li {
@@ -77,50 +88,99 @@ body, html {
         height: 20vh;
         margin-top: 20px;
         padding-left: 20px;
-        padding-right: 20px;
+        padding-right: 30px;
         overflow: hidden;
     }
 
+    .header-container::before {
+        height: 120vh;
+    }
+
     .title-header {
-        font-size: 8px;
+        font-size: 14px;
         margin: 0;
         min-width: max-content;
     }
 
     .options-container {
-        margin-right: 0;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        overflow: hidden;
+        background: rgba(0, 0, 0, 0.9);
+        position: fixed;
+        top: 0;
+        margin: 0;
+        width: 150px;
+        right: -150px;
+        height: 100%;
+        padding: 20px 0;
+        transition: all 0.3s ease;
+    }
+
+    .options-container.open {
+        right: 0;
     }
 
     .options-container ul {
         text-align: center;
         padding: 0;
-        display: flex;
-        margin: 0;
+        margin: 20px 0;
     }
 
     .options-container li {
-        margin-bottom: 5px;
         font-size: 13px;
         position: relative;
+        margin: 0;
     }
 
     .options-container li a {
-        display: inline-block;
+        display: block;
+        padding: 13px 30px;
+        border-top: 1px solid #10558d;
+        border-bottom: 1px solid #10558d;
+        color: rgb(241, 237, 237);
+        font-size: 13pt;
+        position: relative;
     }
 
-    .home a, .home li,
-    .blog a, .blog li,
-    .instagram a, .instagram li,
-    .linkedin a, .linkedin li {
-        visibility: hidden;
-        display: none;
-        width: 0;
-        height: 0;
+    .sidebar-button {
+        display: block;
+        width: 100%;
+        text-align: right;
+    }
+
+    .sidebar-principal {
+        width: 100%;
+    }
+
+    .sidebar-close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        cursor: pointer;
+        color: white;
+    }
+
+    .sidebar-button .top-navbar button {
+        border-radius: 5px;
+        background-color: transparent;
+        padding: 4px 8px;
+        border: none;
+    }
+
+    .sidebar-button .top-navbar button:hover {
+        background-color: #10558d;
+    }
+
+    .sidebar-button .top-navbar button:active {
+        background-color: black;
+    }
+
+    .sidebar-button .top-navbar button img {
+        pointer-events: none;
+        width: 24px;
+        height: auto;
     }
 }
+
+
 
 .main-container {
     display: flex;
@@ -295,3 +355,5 @@ body, html {
         width: 25px;
     } 
 }
+
+
