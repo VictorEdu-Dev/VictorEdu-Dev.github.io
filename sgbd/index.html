@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Árvores B+ e B</title>
+
+    <!-- Autoria -->
+    <meta name="author" content="Victor Eduardo Pita Campos" />
+    <meta name="author" content="Joyce Ávila Ximenes" />
+    <link rel="author" href="https://github.com/VictorEdu-Dev" />
+    <link rel="author" href="https://github.com/joyceximenes" />
+
+    <link rel="icon" href="assets/img/favicon.ico" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <script src="assets/js/EventQueue.js"></script>
+    <script src="assets/js/EventProcessor.js"></script>
+    <script src="assets/js/utils.js"></script>
+    <script src="assets/js/Controlls.js"></script>
+
+    <link rel="stylesheet" href="assets/css/TopBar/NavBar.css" />
+    <link rel="stylesheet" href="assets/css/TopBar/SelectInputType.css" />
+    <link rel="stylesheet" href="assets/css/TopBar/InsertValues.css" />
+    <link rel="stylesheet" href="assets/css/TopBar/TreeOptions.css" />
+
+    <script src="assets/js/Components/BottomBar.js"></script>
+    <script src="assets/js/Components/TreeSelector.js"></script>
+    <script src="assets/js/Components/OptionListener.js"></script>
+    <script src="assets/js/Components/ActionSelector.js"></script>
+    <script src="assets/js/Components/ActionListener.js"></script>
+
+    <link rel="stylesheet" href="assets/css/BottomBar/BottomControllsBar.css" />
+    <link rel="stylesheet" href="assets/css/TreeSelector/TreeSelector.css" />
+
+    <script src="assets/js/BaseTree/BaseNode.js"></script>
+
+    <script src="assets/js/BPlusTree/BPlusTreeNode.js"></script>
+    <script src="assets/js/BPlusTree/BPlusTreeNodeVisualizer.js"></script>
+    <script src="assets/js/BPlusTree/BPlusTree.js"></script>
+    <script src="assets/js/BPlusTree/BPlusTreeVisualizer.js"></script>
+    <script src="assets/js/BPlusTree/InternalNode.js"></script>
+    <script src="assets/js/BPlusTree/LeafNode.js"></script>
+
+    <script src="assets/js/bTree/controller/BTreeSearcher.js"></script>
+    <script src="assets/js/bTree/controller/BTreeInserter.js"></script>
+    <script src="assets/js/bTree/controller/BTreeDeleter.js"></script>
+    <script src="assets/js/bTree/controller/BTree.js"></script>
+    
+    <script src="assets/js/bTree/BTreeNode.js"></script>
+    <script src="assets/js/bTree/view/BTreeVisualizer.js"></script>
+  </head>
+  <body>
+    <div id="container">
+      <div class="titleBar">
+        <div class="treeSelector">
+          <div id="b-plus-button" class="treeSelectorTitle selected">
+            Árvore B+
+          </div>
+          <div class="treeSelectorIcon" id="b-icon">
+          </div>
+          <div class="treeSelectorIcon selected" id="b-plus-icon">
+          </div>
+          <div id="b-button" class="treeSelectorTitle">Árvore B</div>
+        </div>
+      </div>
+
+      <div id="navbarContainer">
+        <nav id="navbar">
+          <div class="treeInputOptions">
+            <div class="selectInputTypeContainer">
+              <div id="select-input-manual" class="selectedInputOption selected">
+                Manual
+              </div>
+              <div id="select-insert-random" class="selectedInputOption">
+                Inserção Aleatória
+              </div>
+              <div id="select-delete-random" class="selectedInputOption">
+                Deleção Aleatória
+              </div>
+            </div>
+
+            <div id="manual-container" class="treeOptionInput">
+              <div class="treeInsertionInputs">
+                <input class="input-bar" id="manual-input-key" placeholder="Digite uma Chave" />
+              </div>
+              <div class="treeInsertionButtons">
+                <button class="input-button pure-material-button-contained" id="manual-insert-button">
+                  Inserir
+                </button>
+                <button class="input-button pure-material-button-contained" id="manual-search-button">
+                  Buscar
+                </button>
+                <button class="input-button pure-material-button-contained" id="manual-delete-button">
+                  Deletar
+                </button>
+              </div>
+            </div>
+            
+            <div id="random-insert-container" class="treeOptionInput">
+              <div class="treeInsertionInputs">
+                <input id="random-insert-input-start" class="input-bar" type="number" placeholder="Índice inicial" />
+                <input id="random-insert-input-end" class="input-bar" type="number" placeholder="Índice Final" />
+                <input id="random-insert-input-count" class="input-bar" type="number" placeholder="N° de elementos" />
+              </div>
+              <div class="treeInsertionButtons">
+                <button id="random-insert-button" class="input-button">
+                  Inserir
+                </button>
+              </div>
+            </div>
+
+            <div id="random-delete-container" class="treeOptionInput">
+              <div class="treeInsertionInputs">
+                <input id="random-deletion-input-count" class="input-bar" type="number" placeholder="N° de elementos" />
+              </div>
+              <div class="treeInsertionButtons">
+                <button id="random-delete-button" class="input-button">
+                  Deletar
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="treeOptionsContainer">
+            <h3>Opções</h3>
+            <div class="treeOption">
+              <div class="treeOptionTitle">Fanout</div>
+              <div class="treeOptionSelector fanoutSelector">
+                <button class="fanoutIncrease fanoutSelectorItem" id="increase-fanout-button">+</button>
+                <div class="treeFanout fanoutSelectorItem" id="show-fanout">4</div>
+                <button class="fanoutDescrease fanoutSelectorItem" id="decrease-fanout-button">-</button>
+              </div>
+            </div>
+
+            <div class="treeOption">
+              <div class="treeOptionTitle">Velocidade</div>
+              <div class="treeOptionSelector" id="speed-container"> 
+                <div id="slider-tooltip" class="slider-tooltip">1.00x</div>
+                <div class="treeOptionSelector">
+                  <input type="range" class="treeSpeedSelector" id="tree-speed-selector" min="1" max="1219" value="610" step="1" />
+                </div>
+              </div>
+            </div>
+
+            <div class="treeOption" id="tree-option-button">
+              <button class="input-button pure-material-button-contained" id="clear-tree-button">
+                Limpar Árvore
+              </button>
+            </div>
+          </div>
+        </nav>
+      </div>
+
+      <div id="bottom-controlls-bar">
+        <div class="bottomControllsInfo">
+          <div class="bottomControllsInfoTitle">Tempo:</div>
+          <div id="bottom-bar-timer-value" class="bottomControllsInfoValue">0</div>
+        </div>
+        <div class="bottomControllsInfo">
+          <div class="bottomControllsInfoTitle">Leitura em Nós:</div>
+          <div id="bottom-bar-read-nodes-value" class="bottomControllsInfoValue">0</div>
+        </div>
+        <div class="bottomControllsInfo">
+          <div class="bottomControllsInfoTitle">Escrita em Nós:</div>
+          <div id="bottom-bar-written-nodes-value" class="bottomControllsInfoValue">0</div>
+        </div>
+      </div>
+
+      <div id="tree-wrapper">
+        <canvas id="canvas"></canvas>
+        <div id="tree"></div>
+      </div>
+
+      <div id="stats-dashboard" class="stats-container">
+        <div class="stat-item">
+            <div class="stat-label">Altura</div>
+            <div id="stat-height-value" class="stat-number">1</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+            <div class="stat-label">Total de Chaves</div>
+            <div id="stat-keys-value" class="stat-number">0</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+            <div class="stat-label">Total de Nós</div>
+            <div id="stat-nodes-value" class="stat-number">1</div>
+        </div>
+    </div>
+
+      <div id="sequence-display-container" class="sequence-container" style="display: none;">
+        <span class="sequence-label">Sequência Gerada:</span>
+        <div id="sequence-content" class="sequence-content"></div>
+      </div>
+    </div>
+    <div id="node-tooltip" class="node-tooltip"></div>
+  </body>
+</html>

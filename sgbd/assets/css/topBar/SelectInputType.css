@@ -1,0 +1,75 @@
+/* Container dos botões */
+.selectInputTypeContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 12px; /* Espaçamento entre os botões */
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* Estilo Base do Botão (Estado Inativo) */
+.selectedInputOption {
+  padding: 8px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  
+  font-family: "Inter", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+
+  /* Estilização visual baseada no seu style.css */
+  background-color: var(--bg-card); /* Fundo branco */
+  border: 1px solid var(--border-color); /* Borda cinza suave */
+  color: var(--text-secondary); /* Texto cinza */
+  border-radius: 8px; /* Arredondamento suave */
+  
+  transition: all 0.2s ease-in-out;
+}
+
+/* Efeito Hover Geral (ao passar o mouse) */
+.selectedInputOption:hover {
+  transform: translateY(-2px); /* Leve subida */
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* --- ESTILOS ESPECÍFICOS PARA CADA BOTÃO (QUANDO SELECIONADOS) --- */
+
+/* 1. Botão MANUAL (Azul - usa sua variável --accent) */
+.selectedInputOption:nth-child(1).selected {
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25); /* Sombra azulada */
+}
+
+/* 2. Botão INSERÇÃO (Verde - cor customizada para combinar) */
+/* Hover específico para o verde */
+.selectedInputOption:nth-child(2):hover {
+  border-color: #10b981;
+  color: #10b981;
+}
+/* Estado selecionado */
+.selectedInputOption:nth-child(2).selected {
+  background-color: #10b981; /* Verde Esmeralda */
+  border-color: #10b981;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25); /* Sombra esverdeada */
+}
+
+/* 3. Botão DELEÇÃO (Vermelho - usa sua variável --danger) */
+/* Hover específico para o vermelho */
+.selectedInputOption:nth-child(3):hover {
+  border-color: var(--danger);
+  color: var(--danger);
+}
+/* Estado selecionado */
+.selectedInputOption:nth-child(3).selected {
+  background-color: var(--danger);
+  border-color: var(--danger);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.25); /* Sombra avermelhada */
+}

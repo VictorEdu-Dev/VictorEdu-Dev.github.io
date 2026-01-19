@@ -1,0 +1,47 @@
+.titleBar {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 10px;
+}
+
+
+.treeSelector {
+    display: flex;
+    justify-content: center; /* Centraliza os itens horizontalmente */
+    width: 100%;             /* Garante que use todo o espaço disponível */
+    gap: 30px;               /* Adiciona um espaço entre os dois títulos */
+    
+    /* Mantém o estilo da borda inferior se você quiser */
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.treeSelectorTitle {
+  font-size: 1.8rem;
+  margin: 0;
+  color: #333;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.treeSelectorTitle.selected {
+  font-weight: 600;
+  color: var(--primary-text-color);
+}
+
+.treeSelectorTitle:not(.selected):hover {
+  cursor: pointer;
+}
+
+.treeSelectorIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.treeSelectorIcon:not(.selected) {
+  display: none;
+}

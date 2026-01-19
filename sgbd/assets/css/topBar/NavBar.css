@@ -1,0 +1,20 @@
+#navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    
+    height: auto;
+    padding: 10px;
+    gap: 30px;
+    
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.treeInputOptions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}

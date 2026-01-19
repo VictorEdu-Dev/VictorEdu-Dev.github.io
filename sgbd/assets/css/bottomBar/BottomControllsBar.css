@@ -1,0 +1,45 @@
+#bottom-controlls-bar {
+  display: flex;
+  flex-direction: row;
+  
+  justify-content: center; 
+  align-items: center;
+  
+  gap: 30px; /* Gap reduzido */
+  
+  background-color: #ffffff;
+  
+  /* Padding bem menor para ficar uma pílula fina */
+  padding: 8px 30px; 
+  
+  border-radius: 50px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Sombra mais suave */
+  
+  width: fit-content;
+  margin: 10px auto; /* Margem reduzida */
+}
+
+.bottomControllsInfo {
+  display: flex;
+  flex-direction: row; /* Mudei para row: Título ao lado do valor economiza altura */
+  align-items: baseline; /* Alinha pela base do texto */
+  justify-content: center;
+  gap: 8px; /* Espaço entre Título e Valor */
+}
+
+.bottomControllsInfoTitle {
+  font-size: 0.7rem; /* Fonte menor */
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #6b7280;
+  font-weight: 600;
+}
+
+.bottomControllsInfoValue {
+  font-size: 1.1rem; /* Fonte menor (era 1.5rem) */
+  font-weight: 700;
+  color: #111827;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
