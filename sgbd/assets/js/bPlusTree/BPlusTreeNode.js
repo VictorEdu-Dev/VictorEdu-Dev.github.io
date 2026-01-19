@@ -110,7 +110,6 @@ class BPlusTreeNode extends BaseNode {
     // Encontra a posição onde a chave antiga deveria estar
     const i = this.keys.findIndex(k => isLowerOrEqual(oldKey, k))
     
-    // CORREÇÃO: Verifica se a chave encontrada é realmente a oldKey
     if (i === -1 || this.keys[i] !== oldKey) return
 
     this.keys[i] = newKey

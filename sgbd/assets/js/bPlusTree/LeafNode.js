@@ -5,7 +5,6 @@ class LeafNode extends BPlusTreeNode {
 
   hasTooFewKeys() {
     // Em nós folha, o mínimo é geralmente (fanout-1)/2.
-    // Usamos Math.ceil para garantir inteiros.
     const minimumKeys = Math.ceil((this.fanout - 1) / 2)
     return this.keys.length < minimumKeys
   }
@@ -54,13 +53,10 @@ class LeafNode extends BPlusTreeNode {
     })
 
     // Remove do nó atual (Esquerda)
-    // Usamos um loop reverso chamando delete para garantir que
-    // as visualizações/eventos de deleção ocorram corretamente e na ordem certa.
     for (let i = keysToMove.length - 1; i >= 0; i--) {
       this.delete(keysToMove[i])
     }
 
-    // CORREÇÃO CRÍTICA B+ Tree:
     // Em nós folha, a chave que sobe é uma CÓPIA da primeira chave do nó da direita.
     return rightSibling.keys[0]
   }
@@ -86,7 +82,7 @@ class LeafNode extends BPlusTreeNode {
       sibling.delete(borrowedKey)
       this.insert(borrowedKey, borrowedPointer)
       
-      // A chave separadora no pai deve se tornar a nova menor chave do irmão (que agora mudou)
+      // A chave separadora no pai deve se tornar a nova menor chave do irmão
       parent.replaceKey(k, sibling.keys[0]) 
     }
   }

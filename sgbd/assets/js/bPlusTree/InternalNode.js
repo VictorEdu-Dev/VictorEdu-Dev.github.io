@@ -21,7 +21,7 @@ class InternalNode extends BPlusTreeNode {
   delete(value) {
     const i = this.keys.findIndex(k => isLowerOrEqual(value, k))
 
-    // SEGURANÇA: Só deleta se a chave realmente existir nesta posição
+    // Só deleta se a chave realmente existir nesta posição
     if (i === -1 || value !== this.keys[i]) return
 
     // Em nós internos, remove a chave e o ponteiro à direita dela

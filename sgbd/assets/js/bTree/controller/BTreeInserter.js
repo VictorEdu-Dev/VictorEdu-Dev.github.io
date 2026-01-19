@@ -3,6 +3,7 @@ class BTreeInserter {
     this.tree = tree;
   }
 
+  // Insere um valor na árvore B
   insert(value) {
     // Usa o searcher da árvore para verificar duplicatas
     if (this.tree.searcher.find(value)) return;
@@ -36,6 +37,7 @@ class BTreeInserter {
     this.insertParent(leafNode, rightNode);
   }
 
+  // Insere um nó pai após uma divisão
   insertParent(node, newNode) {
     const value = node.mostRightKey();
 

@@ -3,6 +3,7 @@ class BTreeDeleter {
     this.tree = tree;
   }
 
+  // Deleta um valor da árvore B
   delete(value) {
     if (!this.tree.root) return;
 
@@ -20,6 +21,7 @@ class BTreeDeleter {
     }
   }
 
+  // Função recursiva para deletar um valor
   deleteRecursive(node, value) {
     const idx = node.keys.findIndex(k => k == value);
 
@@ -64,6 +66,7 @@ class BTreeDeleter {
     }
   }
 
+  // Obtém o predecessor de um nó
   getPredecessor(node) {
     let curr = node;
     while (!curr.isLeaf()) {
@@ -72,6 +75,7 @@ class BTreeDeleter {
     return curr.mostRightKey();
   }
 
+  // Obtém o sucessor de um nó
   getSuccessor(node) {
     let curr = node;
     while (!curr.isLeaf()) {
@@ -80,6 +84,7 @@ class BTreeDeleter {
     return curr.mostLeftKey();
   }
 
+  // Preenche um nó que tem menos do que o número mínimo de chaves
   fill(parent, idx) {
     const minKeys = Math.ceil(this.tree.fanout / 2) - 1;
 
@@ -99,6 +104,7 @@ class BTreeDeleter {
     }
   }
 
+  // Pega emprestado uma chave do irmão anterior
   borrowFromPrev(parent, idx) {
     const child = parent.pointers[idx];
     const sibling = parent.pointers[idx - 1];
@@ -120,6 +126,7 @@ class BTreeDeleter {
     sibling.delete(keyFromSibling);
   }
 
+  // Pega emprestado uma chave do irmão seguinte
   borrowFromNext(parent, idx) {
     const child = parent.pointers[idx];
     const sibling = parent.pointers[idx + 1];
@@ -151,6 +158,7 @@ class BTreeDeleter {
     }
   }
 
+  // Mescla um nó com seu irmão
   merge(parent, idx) {
     const leftChild = parent.pointers[idx];
     const rightChild = parent.pointers[idx + 1];

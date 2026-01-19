@@ -15,6 +15,7 @@ class BTree extends Observable {
     return this.root;
   }
 
+  // Função padrão para criar um novo nó
   defaultCreateNodeFunction(fanout) {
     const createdNode = new BTreeNode(fanout);
     this.notifyAll({
@@ -32,23 +33,27 @@ class BTree extends Observable {
     return this.root === null;
   }
 
+  // Insere um valor na B-Tree
   insert(value) {
     this.inserter.insert(value);
   }
 
+  // Remove um valor da B-Tree
   delete(value) {
     this.deleter.delete(value);
   }
 
+  // Busca um valor na B-Tree
   find(value) {
     return this.searcher.find(value);
   }
 
+  // Encontra o nó folha onde um valor deveria estar
   findSupposedLeafNode(value) {
     return this.searcher.findSupposedLeafNode(value);
   }
 
-  
+  // Obtém o nível de um nó específico na árvore
   getNodeLevel(node) {
     if (node === null || !this.root) return 0;
     
@@ -74,6 +79,7 @@ class BTree extends Observable {
     return 0; 
   }
 
+  // Obtém todas as conexões de ponteiros entre os nós
   getPointerConnections() {
     const connections = [];
     if (!this.root) return connections;
@@ -97,6 +103,7 @@ class BTree extends Observable {
     return connections;
   }
 
+  // Obtém estatísticas da árvore: altura e número de nós
   getStatistics() {
     if (!this.root) return { height: 0, nodeCount: 0 };
 
@@ -121,8 +128,6 @@ class BTree extends Observable {
         nodeCount++;
         
         if (!node.isLeaf()) {
-             // Em B-Tree os ponteiros são acessados de forma diferente dependendo da sua implementação
-             // Assumindo estrutura padrão de pointers array:
              node.pointers.forEach(ptr => {
                  if (ptr) stack.push(ptr);
              });

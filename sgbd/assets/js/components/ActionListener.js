@@ -54,7 +54,6 @@ class ActionListener {
         value,
       })
       
-      // --- ALTERAÇÃO AQUI: Limpa o campo e foca nele ---
       this.manualInputKey.value = ''
       this.manualInputKey.focus()
     })
@@ -69,8 +68,6 @@ class ActionListener {
         value,
       })
       
-      // Nota: Geralmente não se limpa o campo no buscar para ver o que foi buscado,
-      // mas se quiser, pode adicionar as mesmas linhas aqui.
     })
 
     this.manualDeleteButton.addEventListener('click', e => {
@@ -83,7 +80,6 @@ class ActionListener {
         value,
       })
 
-      // --- ALTERAÇÃO AQUI: Limpa o campo e foca nele ---
       this.manualInputKey.value = ''
       this.manualInputKey.focus()
     })

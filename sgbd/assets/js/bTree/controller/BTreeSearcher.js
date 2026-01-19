@@ -3,6 +3,7 @@ class BTreeSearcher {
     this.tree = tree;
   }
 
+  // Encontra um valor na árvore B
   find(value) {
     let node = this.tree.root;
     while (node) {
@@ -25,6 +26,7 @@ class BTreeSearcher {
     return null;
   }
 
+  // Encontra o nó folha onde o valor deveria estar
   findSupposedLeafNode(value) {
     let node = this.tree.root;
     while (!node.isLeaf()) {
@@ -41,6 +43,7 @@ class BTreeSearcher {
     return node;
   }
 
+  // Encontra o nó pai de um dado nó
   parent(node) {
     const findParent = (currentNode, targetNode) => {
       if (!currentNode || !targetNode || currentNode.isLeaf()) return null;

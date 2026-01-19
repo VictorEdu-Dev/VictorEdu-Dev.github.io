@@ -343,8 +343,6 @@ class BPlusTree extends Observable {
     if (neededSpace <= this.fanout - 1) {
       this.performMerge(parent, leftNode, rightNode, separatorKey, nodeToRemove)
     } else {
-      // Redistribute (Empréstimo)
-      // Nota: recuperei a lógica original de pegar o 'sibling' correto baseado no índice
       const index = parent.pointers.indexOf(node) !== -1 
         ? parent.pointers.indexOf(node) 
         : parent.pointers.findIndex(p => p && p.id === node.id)

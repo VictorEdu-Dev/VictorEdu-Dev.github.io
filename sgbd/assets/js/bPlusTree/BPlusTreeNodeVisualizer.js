@@ -22,6 +22,7 @@ class BPlusTreeNodeVisualizer {
     eventQueue.enqueue(event)
   }
 
+  // Executa o evento recebido do nó
   executeEvent(event) {
     const { type, data } = event
 
@@ -43,6 +44,7 @@ class BPlusTreeNodeVisualizer {
     }
   }
 
+  // Cria o elemento DOM do nó
   createElement() {
     this.element = document.createElement('div')
     this.element.classList.add('node')
@@ -60,6 +62,7 @@ class BPlusTreeNodeVisualizer {
     }
   }
 
+  // Insere uma chave visualmente no nó
   insertKey(data) {
     const insertionIndex =
       data.key.index !== -1 && data.key.index !== undefined
@@ -114,7 +117,7 @@ class BPlusTreeNodeVisualizer {
     if (!this.element) return { x: 0, y: 0 }
     const rect = this.element.getBoundingClientRect()
     const x = rect.left + rect.width / 2
-    const y = rect.top // Removemos o +2 para ficar exatamente na borda
+    const y = rect.top
     return { x, y }
   }
 
@@ -139,7 +142,6 @@ class BPlusTreeNodeVisualizer {
 
     if (pointerIndex === 0) {
       // Ponteiro 0: Antes da primeira chave
-      // Pegamos o ponto médio entre o início do nó e o início da primeira chave
       const firstKeyRect = keysElements[0].getBoundingClientRect()
       x = (rect.left + firstKeyRect.left) / 2
       // Ajuste fino: se houver muito padding, aproxima da chave
